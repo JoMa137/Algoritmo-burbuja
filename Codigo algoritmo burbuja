@@ -1,0 +1,31 @@
+int[] array = new int[10];
+   void setup() {
+     size(1100, 700);
+     for (int i=0; i<array.length; i++) {
+       array[i] = (int)random(5, 300);
+     }
+     frameRate(2);
+   }
+   int i=0;
+   int temp;
+   void draw() {
+     background(180);
+     
+     // ciclo del ordenamiento burbuja
+     for (int j=1; j<array.length; j++) {
+       if (array[i]<array[j]) {
+         temp = array[j];
+         array[j] = array[i];
+         array[i] = temp;
+       }
+        stroke(0);
+       //strokeWeight(2);
+       fill(random(255), random(255), random(255));
+       rect(70*j, j+500, 40, -array[j]);
+       fill(0, 0, 0);
+       text(array[j], 70*j, 150+j);
+     }
+     i++;  
+     if (i>array.length-1)
+       noLoop();
+   }
